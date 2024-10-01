@@ -22,7 +22,7 @@ This repository contains a comprehensive Java-based implementation of the classi
 
 ## Features
 
-- **Tetris Block Movement and Rotation:** Includes left/right movement, piece rotation, and fast dropping functionality.
+- **Tetris Block Movement and Rotation:** Includes left/right movement, clockwise and counterclockwise rotation (using A and D keys), and fast dropping functionality.
 - **Collision Detection and Line Clearing:** Prevents overlapping of pieces, clears complete lines, and increases the score.
 - **GUI Integration:** Utilizes Java Swing components for an interactive graphical user interface, with different panels for game area and next shape previews.
 - **Score Tracking and Level Progression:** Automatically adjusts difficulty as the game progresses, keeping track of the player's score and level.
@@ -63,11 +63,14 @@ java -cp classes gui.MainFrame
 ## Game Controls
 
 - **Left/Right Arrow Keys**: Move the Tetris piece left or right.
-- **Up Arrow Key**: Rotate the piece.
 - **Down Arrow Key**: Soft drop the piece (move down faster).
+- **Up Arrow Key**: Rotate the piece.
 - **Space Bar**: Hard drop the piece to the bottom instantly.
+- **A**: Rotate the piece counterclockwise.
+- **D**: Rotate the piece clockwise.
 - **P**: Pause or resume the game.
-- **R**: Restart the game.
+- **N**: Start a new game.
+- **Escape**: Exit the game.
 
 ## Project Structure
 
@@ -120,3 +123,8 @@ Contributions are welcome! Please fork the repository, create a new branch, and 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+
+## Note on Highscore Feature
+
+The highscore tracking feature has been temporarily removed in the current version of the game. However, it will be reintroduced in future updates. Stay tuned for new releases!
