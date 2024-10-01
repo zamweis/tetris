@@ -1,7 +1,7 @@
 
 # Tetris Game
 
-This repository contains a Java-based implementation of the classic Tetris game. It provides the basic functionality of the game, with a focus on object-oriented design and clear code structure.
+This repository contains a Java-based implementation of the classic Tetris game, complete with a graphical user interface and multiple utility classes to handle the different shapes, board state, and game logic.
 
 ## Table of Contents
 
@@ -12,85 +12,86 @@ This repository contains a Java-based implementation of the classic Tetris game.
   - [Running the Game](#running-the-game)
 - [Game Controls](#game-controls)
 - [Project Structure](#project-structure)
+- [Source Code Overview](#source-code-overview)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Features
 
-- **Block Movement and Rotation:** Includes left/right movement, rotation, and soft drop for Tetris pieces.
-- **Collision Detection:** Prevents pieces from overlapping and moving outside the game boundaries.
-- **Line Clearing:** Automatically clears full lines and updates the score.
-- **Graphical Interface:** Built using Java Swing, providing a simple and clean UI.
-- **Score Tracking:** Keeps track of the player's score.
+- **Block Movement and Rotation:** Supports basic movements (left, right, down) and rotation for each Tetris piece.
+- **Collision Detection:** Ensures that pieces do not overlap and remain within the game boundaries.
+- **Line Clearing and Scoring:** Automatically clears full lines, updates the score, and progresses to higher levels.
+- **Graphical User Interface:** Built using Java Swing, the UI includes panels for game area, score, and preview of upcoming shapes.
+- **Custom Shape Classes:** Individual classes for each Tetris piece, including 'I', 'J', 'L', 'O', 'S', 'T', and 'Z' shapes.
 
 ## Getting Started
 
 ### Prerequisites
 
-Before running the game, ensure you have the following installed:
-
-- [Java Development Kit (JDK) 1.8+](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
+- Java Development Kit (JDK) 1.8 or higher
 
 ### Installation
 
-1. Clone the repository to your local machine using the following command:
+1. Clone the repository to your local machine:
     ```bash
     git clone https://github.com/zamweis/tetris.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd tetris
+    cd tetris-master
     ```
 
-3. Compile the source code using the Java compiler:
+3. Compile the project using the provided build script or manually compile the source files in the `src` directory:
     ```bash
-    javac -d build src/*.java
+    javac -d classes src/**/*.java
     ```
 
 ### Running the Game
 
-After compiling, you can run the game using the following command:
+Once compiled, you can run the game with the following command:
 
 ```bash
-java -cp build Tetris
+java -cp classes gui.MainFrame
 ```
 
 ## Game Controls
 
-- **Arrow Keys**: Move the piece left, right, or down.
+- **Arrow Keys**: Move the current piece left, right, or down.
 - **Up Arrow**: Rotate the piece.
-- **Space Bar**: Instant drop to the bottom.
+- **Space Bar**: Hard drop the piece to the bottom.
 - **P**: Pause/Resume the game.
 - **R**: Restart the game.
 
 ## Project Structure
 
 ```
-tetris/
+tetris-master/
 │
 ├── src/                  # Source code files
-│   ├── Board.java        # Manages the Tetris board and piece placement
-│   ├── Piece.java        # Represents individual Tetris pieces
-│   ├── Game.java         # Main game logic
-│   └── Tetris.java       # Game entry point with main method
+│   ├── META-INF/         # Manifest file for metadata
+│   ├── gui/              # Graphical user interface classes
+│   ├── shapes/           # Definitions for each Tetris piece shape
+│   └── utils/            # Utility classes for game logic
 │
-├── build/                # Compiled class files (generated after building)
+├── classes/              # Compiled class files (generated after building)
 │
-├── nbproject/            # NetBeans project files (for IDE configuration)
-│
-└── manifest.mf           # Manifest file for running the application
+├── build.xml             # Ant build script for automating build process
+├── manifest.mf           # Manifest file for running the application
+├── README.md             # Project README file
+└── nbproject/            # NetBeans project configuration files
 ```
+
+## Source Code Overview
+
+- **`gui`**: Contains all the user interface components, including the main game window (`MainFrame.java`), panels for displaying the game board (`BlockMapPanel.java`), and panels for showing next shapes (`NextShapePanel.java`).
+- **`shapes`**: Defines the classes for each Tetris piece, such as `ShapeI.java`, `ShapeJ.java`, etc., and handles their rotation and movement.
+- **`utils`**: Contains helper classes like `Point.java` for representing coordinates and `Utils.java` for common utility functions.
+- **`META-INF`**: Stores metadata and manifest files for the application.
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps to contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes and commit them (`git commit -m 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a new Pull Request.
+Contributions are welcome! Please fork the repository and create a new branch for your feature or bug fix. Then, create a pull request with a description of your changes.
 
 ## License
 
