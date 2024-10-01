@@ -1,7 +1,7 @@
 
 # Tetris Game
 
-This repository contains a Java-based implementation of the classic Tetris game, complete with a graphical user interface and multiple utility classes to handle the different shapes, board state, and game logic.
+This repository contains a comprehensive Java-based implementation of the classic Tetris game, featuring various shape configurations, graphical interface components, and utility functions. The project uses object-oriented design principles to manage game logic and the user interface.
 
 ## Table of Contents
 
@@ -13,28 +13,33 @@ This repository contains a Java-based implementation of the classic Tetris game,
 - [Game Controls](#game-controls)
 - [Project Structure](#project-structure)
 - [Source Code Overview](#source-code-overview)
+  - [Graphical User Interface (`gui`)](#graphical-user-interface-gui)
+  - [Tetris Shapes (`shapes`)](#tetris-shapes-shapes)
+  - [Utility Classes (`utils`)](#utility-classes-utils)
+  - [Metadata (`META-INF`)](#metadata-meta-inf)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Features
 
-- **Block Movement and Rotation:** Supports basic movements (left, right, down) and rotation for each Tetris piece.
-- **Collision Detection:** Ensures that pieces do not overlap and remain within the game boundaries.
-- **Line Clearing and Scoring:** Automatically clears full lines, updates the score, and progresses to higher levels.
-- **Graphical User Interface:** Built using Java Swing, the UI includes panels for game area, score, and preview of upcoming shapes.
-- **Custom Shape Classes:** Individual classes for each Tetris piece, including 'I', 'J', 'L', 'O', 'S', 'T', and 'Z' shapes.
+- **Tetris Block Movement and Rotation:** Includes left/right movement, piece rotation, and fast dropping functionality.
+- **Collision Detection and Line Clearing:** Prevents overlapping of pieces, clears complete lines, and increases the score.
+- **GUI Integration:** Utilizes Java Swing components for an interactive graphical user interface, with different panels for game area and next shape previews.
+- **Score Tracking and Level Progression:** Automatically adjusts difficulty as the game progresses, keeping track of the player's score and level.
 
 ## Getting Started
 
 ### Prerequisites
 
-- Java Development Kit (JDK) 1.8 or higher
+Make sure you have the following installed on your machine:
+
+- [Java Development Kit (JDK) 1.8 or higher](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 
 ### Installation
 
-1. Clone the repository to your local machine:
+1. Clone this repository to your local machine:
     ```bash
-    git clone https://github.com/zamweis/tetris.git
+    git clone https://github.com/yourusername/tetris.git
     ```
 
 2. Navigate to the project directory:
@@ -42,14 +47,14 @@ This repository contains a Java-based implementation of the classic Tetris game,
     cd tetris-master
     ```
 
-3. Compile the project using the provided build script or manually compile the source files in the `src` directory:
+3. Compile the source code using the provided build script or compile manually:
     ```bash
     javac -d classes src/**/*.java
     ```
 
 ### Running the Game
 
-Once compiled, you can run the game with the following command:
+After compiling, you can run the game using the following command:
 
 ```bash
 java -cp classes gui.MainFrame
@@ -57,10 +62,11 @@ java -cp classes gui.MainFrame
 
 ## Game Controls
 
-- **Arrow Keys**: Move the current piece left, right, or down.
-- **Up Arrow**: Rotate the piece.
-- **Space Bar**: Hard drop the piece to the bottom.
-- **P**: Pause/Resume the game.
+- **Left/Right Arrow Keys**: Move the Tetris piece left or right.
+- **Up Arrow Key**: Rotate the piece.
+- **Down Arrow Key**: Soft drop the piece (move down faster).
+- **Space Bar**: Hard drop the piece to the bottom instantly.
+- **P**: Pause or resume the game.
 - **R**: Restart the game.
 
 ## Project Structure
@@ -71,8 +77,8 @@ tetris-master/
 ├── src/                  # Source code files
 │   ├── META-INF/         # Manifest file for metadata
 │   ├── gui/              # Graphical user interface classes
-│   ├── shapes/           # Definitions for each Tetris piece shape
-│   └── utils/            # Utility classes for game logic
+│   ├── shapes/           # Tetris shape definitions and logic
+│   └── utils/            # Utility classes for game operations
 │
 ├── classes/              # Compiled class files (generated after building)
 │
@@ -84,14 +90,32 @@ tetris-master/
 
 ## Source Code Overview
 
-- **`gui`**: Contains all the user interface components, including the main game window (`MainFrame.java`), panels for displaying the game board (`BlockMapPanel.java`), and panels for showing next shapes (`NextShapePanel.java`).
-- **`shapes`**: Defines the classes for each Tetris piece, such as `ShapeI.java`, `ShapeJ.java`, etc., and handles their rotation and movement.
-- **`utils`**: Contains helper classes like `Point.java` for representing coordinates and `Utils.java` for common utility functions.
-- **`META-INF`**: Stores metadata and manifest files for the application.
+### Graphical User Interface (`gui`)
+
+- **`MainFrame.java`**: The main game window, including setup and layout management.
+- **`BlockMapPanel.java`**: Handles rendering of the Tetris game area.
+- **`NextShapePanel.java`**: Displays a preview of the upcoming Tetris piece.
+- **`ShapePanel.java`**: Manages graphical rendering of individual Tetris shapes.
+
+### Tetris Shapes (`shapes`)
+
+- **Individual Shape Classes**: Each Tetris piece (I, J, L, O, S, T, Z) has its own class (`ShapeI.java`, `ShapeJ.java`, etc.), handling its unique shape and rotation logic.
+- **`Shape.java`**: The base class for all Tetris pieces, defining common properties and methods.
+- **`Block.java`**: Represents a single unit block that makes up the Tetris shapes.
+- **`BlockMap.java`**: Manages the game grid, piece placement, and collision detection.
+
+### Utility Classes (`utils`)
+
+- **`Point.java`**: A simple class to represent x, y coordinates.
+- **`Utils.java`**: Contains common utility functions for game logic and calculations.
+
+### Metadata (`META-INF`)
+
+- **`MANIFEST.MF`**: Metadata and configuration information for the project.
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and create a new branch for your feature or bug fix. Then, create a pull request with a description of your changes.
+Contributions are welcome! Please fork the repository, create a new branch, and submit a pull request with your changes. Make sure to include a detailed description of your updates.
 
 ## License
 
